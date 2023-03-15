@@ -67,6 +67,7 @@ r64_historical_matchup_differences <- data.frame(
   score = r64_historical_team1$score - r64_historical_team2$score
 )
 
+#2023 
 r64_current_matchup_differences <- data.frame(
   seed = r64_team1$seed - r64_team2$seed,
   kenpom_o = r64_team1$kenpom.adjusted.offense - r64_team2$kenpom.adjusted.offense,
@@ -252,12 +253,15 @@ write.csv(results_r32, "predicted_scores_round_32_v3.csv", row.names = FALSE)
 
 
 # r16
+## Grab historical data for round of 16
 r16_historical <- historical_data %>%
   filter(current.round == 16)
 
+## Create a df for each team to find difference between the team stats in each game
 r16_historical_team1 <- r16_historical[seq(1, nrow(r16_historical), 2), ]
 r16_historical_team2 <- r16_historical[seq(2, nrow(r16_historical), 2), ]
 
+## Finding difference between the team stats
 r16_historical_matchup_differences <- data.frame(
   seed = r16_historical_team1$seed - r16_historical_team2$seed,
   kenpom_o = r16_historical_team1$kenpom.adjusted.offense - r16_historical_team2$kenpom.adjusted.offense,
@@ -276,9 +280,11 @@ r16_historical_matchup_differences <- data.frame(
   score = r16_historical_team1$score - r16_historical_team2$score
 )
 
+## Create training and testing sets of historical data
 set.seed(123)
 r16_historical_matchup_differences$prob_win <- ''
 
+## If score is positive, then win probability is 100%, else win probability is 0%
 trainIndex <- createDataPartition(r16_historical_matchup_differences$score, p = 0.8, list = FALSE)
 training_data <- r16_historical_matchup_differences[trainIndex, ]
 testing_data <- r16_historical_matchup_differences[-trainIndex, ]
@@ -292,6 +298,7 @@ training_data <- training_data %>%
 testing_data <- testing_data %>%
   select(-score)
 
+## Create machine learning model
 params <- list(objective = "reg:logistic", eval_metric = "logloss")
 r16_xgb_model <- xgboost(data = as.matrix(training_data[, -15]), label = training_data$prob_win, 
                          nthread = 4, nrounds = 10,  params = params)
@@ -299,6 +306,7 @@ r16_xgb_model <- xgboost(data = as.matrix(training_data[, -15]), label = trainin
 importance <- xgb.importance(feature_names = colnames(as.matrix(training_data[, -15])), model = r16_xgb_model)
 head(importance)
 
+## Test model and show error 
 test_pred <- predict(r16_xgb_model, as.matrix(testing_data[, -15]))
 
 mean((testing_data$prob_win - test_pred)^2) #mse
@@ -338,10 +346,12 @@ r16_matchup_differences <- data.frame(
 
 r16_matchup_differences$prob_win <- ''
 
+## Make prediction for 2023 data
 r16_pred <- predict(r16_xgb_model, as.matrix(r16_matchup_differences[, -15]))
 
 results_r16 <- data.frame(predicted_win_prob = r16_pred)
 
+## Join in teams to final prediction
 results_r16$team <- r16_team1$team
 results_r16$opponent <- r16_team2$team
 results_r16$predicted_winner <- ifelse(results_r16$predicted_win_prob >= .5, r16_team1$team, r16_team2$team)
