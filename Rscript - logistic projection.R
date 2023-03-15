@@ -8,10 +8,14 @@ rm(list=ls())
 
 setwd("~/Betting/CBB/March Madness")
 
+
+# Read in data
 historical_data <- read.csv("historical_game_data.csv")
 r64_current <- read.csv("2023_game_data.csv")
 
 
+
+# Data Cleaning
 names(historical_data) <- tolower(names(historical_data))
 names(r64_current) <- tolower(names(r64_current))
 
@@ -23,18 +27,28 @@ r64_current <- r64_current %>%
   select(-year, -team.round, -current.round, -kenpom.adjusted.efficiency, 
          -barttorvik.adjusted.efficiency, -wins.above.bubble, -win.., -team.1)
 
-# play in games
 
-# r64
+
+
+
+
+
+# Round of 64 
+
+## Grab historical data for round of 64
 r64_historical <- historical_data %>%
   filter(current.round == 64)
 
+
+## Create a df for each team to find difference between the team stats in each game
 r64_historical_team1 <- r64_historical[seq(1, nrow(r64_historical), 2), ]
 r64_historical_team2 <- r64_historical[seq(2, nrow(r64_historical), 2), ]
 
 r64_team1 <- r64_current[seq(1, nrow(r64_current), 2), ]
 r64_team2 <- r64_current[seq(2, nrow(r64_current), 2), ]
 
+
+## Finding difference between the team stats 
 r64_historical_matchup_differences <- data.frame(
   seed = r64_historical_team1$seed - r64_historical_team2$seed,
   kenpom_o = r64_historical_team1$kenpom.adjusted.offense - r64_historical_team2$kenpom.adjusted.offense,
@@ -70,23 +84,32 @@ r64_current_matchup_differences <- data.frame(
   block = r64_team1$block.. - r64_team2$block..
 )
 
+
+## Initialize winning probability columnn
 r64_current_matchup_differences$prob_win <- ''
 
+
+## Create training and testing sets of historical data
 set.seed(123)
 r64_historical_matchup_differences$prob_win <- ''
 trainIndex <- createDataPartition(r64_historical_matchup_differences$score, p = 0.7, list = FALSE)
 training_data <- r64_historical_matchup_differences[trainIndex, ]
 testing_data <- r64_historical_matchup_differences[-trainIndex, ]
 
+
+## If score is positive, then win probability is 100%, else win probability is 0%
 training_data$prob_win <- plogis(training_data$score)
 testing_data$prob_win <- plogis(testing_data$score)
 
+
+
 training_data <- training_data %>%
   select(-score)
-
 testing_data <- testing_data %>%
   select(-score)
 
+
+## Create machine learning model
 params <- list(objective = "reg:logistic", eval_metric = "logloss")
 r64_xgb_model <- xgboost(data = as.matrix(training_data[, -15]), label = training_data$prob_win, 
                          nthread = 4, nrounds = 10,  params = params)
@@ -94,16 +117,24 @@ r64_xgb_model <- xgboost(data = as.matrix(training_data[, -15]), label = trainin
 importance <- xgb.importance(feature_names = colnames(as.matrix(training_data[, -15])), model = r64_xgb_model)
 head(importance)
 
+
+
+## Test model and show error 
 test_pred <- predict(r64_xgb_model, as.matrix(testing_data[, -15]))
 
 mean((testing_data$prob_win - test_pred)^2) #mse
 caret::MAE(testing_data$prob_win, test_pred) #mae
 caret::RMSE(testing_data$prob_win, test_pred)
 
+
+
+## Make prediction for 2023 data
 current_pred <- predict(r64_xgb_model, as.matrix(r64_current_matchup_differences[, -15]))
 
 results_r64 <- data.frame(predicted_win_prob = current_pred)
 
+
+## Join in teams to final prediction
 results_r64$team <- r64_team1$team
 results_r64$opponent <- r64_team2$team
 results_r64$predicted_winner <- ifelse(results_r64$predicted_win_prob >= .5, r64_team1$team, r64_team2$team)
