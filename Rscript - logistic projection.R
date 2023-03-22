@@ -6,7 +6,7 @@ library(xgboost)
 library(caret)
 rm(list=ls())
 
-setwd("~/Betting/CBB/March Madness")
+setwd("~/DATA-332/march_madness/marchmadness2023/Files for Analysis")
 
 
 
@@ -783,3 +783,6 @@ results_r2$predicted_winner <- ifelse(results_r2$predicted_win_prob >= .5, r2_te
 results_r2$game <- seq_along(results_r2$team)
 
 write.csv(results_r2, "predicted_scores_round_2_v3.csv", row.names = FALSE)
+
+
+
