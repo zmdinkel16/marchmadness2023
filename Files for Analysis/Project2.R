@@ -169,7 +169,16 @@ results_r64$game <- seq_along(results_r64$team)
 write.csv(results_r64, "predicted_scores_round_64_v3.csv", row.names = FALSE)
 
 
+#GRAPH
+ggplot(data = results_r64, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+  geom_bar(stat = "identity")+
+  theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
+  xlab("Predicted Team Winner") +
+  ylab("Probability")+
+  ggtitle("Round of 64 Predictions") + coord_flip()
 
+ggplot(data = r64_current)+
+  geom_smooth(mapping = aes(x = kenpom.adjusted.offense, y = kenpom.adjusted.defense))
 
 
 # r32
@@ -312,7 +321,18 @@ results_r32$game <- seq_along(results_r32$team)
 
 write.csv(results_r32, "predicted_scores_round_32_v3.csv", row.names = FALSE)
 
+#GRAPHH
+ggplot(data = results_r32, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+  geom_bar(stat = "identity")+
+  theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
+  xlab("Predicted Team Winner") +
+  ylab("Probability")+
+  ggtitle("Round of 64 Predictions") + coord_flip()
 
+
+ggplot(data = r32_games)+
+  geom_smooth(mapping = aes(x = kenpom.adjusted.offense, y = kenpom.adjusted.defense)) +
+  geom_point(mapping = aes(x = kenpom.adjusted.offense, y = kenpom.adjusted.defense, color = team))
 
 
 
@@ -450,7 +470,16 @@ results_r16$game <- seq_along(results_r16$team)
 
 write.csv(results_r16, "predicted_scores_round_16_v3.csv", row.names = FALSE)
 
+#GRAPHH
+ggplot(data = results_r16, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+  geom_bar(stat = "identity")+
+  theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
+  xlab("Predicted Team Winner") +
+  ylab("Probability")+
+  ggtitle("Round of 64 Predictions") + coord_flip()
 
+ggplot(data = r16_games)+
+  geom_smooth(mapping = aes(x = kenpom.adjusted.offense, y = kenpom.adjusted.defense))
 
 
 
@@ -580,6 +609,13 @@ results_r8$game <- seq_along(results_r8$team)
 write.csv(results_r8, "predicted_scores_round_8_v3.csv", row.names = FALSE)
 
 
+#GRAPH
+ggplot(data = results_r8, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+  geom_bar(stat = "identity")+
+  theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
+  xlab("Predicted Team Winner") +
+  ylab("Probability")+
+  ggtitle("Round of 8 Predictions") + coord_flip()
 
 
 
@@ -688,7 +724,13 @@ results_r4$game <- seq_along(results_r4$team)
 
 write.csv(results_r4, "predicted_scores_round_4_v3.csv", row.names = FALSE)
 
-
+#GRAPH
+ggplot(data = results_r4, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+  geom_bar(stat = "identity")+
+  theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
+  xlab("Predicted Team Winner") +
+  ylab("Probability")+
+  ggtitle("Round of 64 Predictions") + coord_flip()
 
 
 
@@ -782,3 +824,10 @@ results_r2$game <- seq_along(results_r2$team)
 
 write.csv(results_r2, "predicted_scores_round_2_v3.csv", row.names = FALSE)
 
+#GRAPH
+ggplot(data = results_r2, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+  geom_bar(stat = "identity")+
+  theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
+  xlab("Predicted Team Winner") +
+  ylab("Probability")+
+  ggtitle("Round of 64 Predictions") + coord_flip()
