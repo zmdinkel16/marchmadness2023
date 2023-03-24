@@ -14,17 +14,38 @@ A brief description of what this project does and who it's for
 ## Brief Description of the Project ⏳
 We will analyze the March Madness 2023 data and create a model to predict who will be winning this 2023 season. 
 ## Dictionary 📖
-1. seed: 
-2. team: 
-3. cuurent.round:
-4. kenpom.adjusted.offense:
-5. kenpom.adjusted.defense 
-6. kenpom.adjusted.tempo: 
-7. barttorvik.adjusted.offense:
-8. barttorvik.adjusted.defense:
-9. barthag: 
-10. elite.sos:
-11. 
+1. seed: rank in March Madness tournament
+2. team: school playing in game
+3. cuurent.round: current round team is in
+4. kenpom.adjusted.offense: Kenpom offensive rating
+5. kenpom.adjusted.defense: Kenpom defensive rating
+6. kenpom.adjusted.tempo: Kenpom tempo rating
+7. barttorvik.adjusted.offense: Barttorvik offensive rating
+8. barttorvik.adjusted.defense: Barttorvik defensive rating
+9. barthag: estimates team's winning percentage against avg team in nuetral location
+10. elite.sos: strength of schedule rating
+11. ft_pctg: free throw percentage
+12. efg_pct: effective field goal percentage
+13. ft_rate: rate of possessions resulting in a free throw
+14. o_reb: offensive rebound percentage
+15. d_reb: defensive rebound percentage
+16. turnover: turnover percentage
+17. block: block percentage
+18. turnover_def: percentage of defensive possesions resulting in a turnover
+19. two_pctg: 2pt percentage
+20. three_pctg: 3pt percentage
+21. assist: amount of scores caused by an assist
+22. two_pt_def: opponent 2pt percentage
+23. three_pt_def: opponent 3pt percentage
+24. ft_defense: opponent free throw percentage
+25. efg_def: opponent effective field goal percentage
+26. ft_rate_def: amount of defensive possessions resulting in opponent free throws
+27. three_pt_rate_def: amount of defensive possessions resulting in opponent 3pt attempt
+28. opp_assist: opponent assist rate
+29. blocked: amount of own shots blocked
+30. ppp_o: points per possession on offense
+31. ppp_d: points per possession allowed on defense
+32. score: score in the game
 ## Library 📚
      1. dplyr
      2. tidyverse 
