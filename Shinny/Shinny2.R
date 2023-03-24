@@ -1,10 +1,13 @@
 #Import libraries
 library(shiny)
 library(ggplot2)
+library(DT)
 library(tidyverse)
 library(rsconnect)
 
 rm(list = ls())
+
+setwd("~/DATA-332/march_madness/marchmadness2023/Files for Analysis")
 
 #Read data
 data_df <- read.csv("2023_game_data.csv")
