@@ -11,7 +11,7 @@ A brief description of what this project does and who it's for
 
 
 ## Brief Description of the Project ⏳
-We will analyze the March Madness 2023 data and create a model to predict who might win this season 
+We will analyze the March Madness 2023 data and create a model to predict who will be winning this 2023 season. 
 ## Dictionary 📖
 1. seed: 
 2. team: 
