@@ -6,7 +6,7 @@ library(xgboost)
 library(caret)
 rm(list=ls())
 
-setwd("~/Desktop/DATA/Data 332/Project2")
+setwd("~/DATA-332/march_madness/marchmadness2023/Files for Analysis")
 
 
 # Read in data
@@ -170,7 +170,7 @@ write.csv(results_r64, "predicted_scores_round_64_v3.csv", row.names = FALSE)
 
 
 #GRAPH
-ggplot(data = results_r64, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+ggplot(data = results_r64, aes(x = reorder(team, -predicted_win_prob), y = predicted_win_prob, fill = team)) +
   geom_bar(stat = "identity")+
   theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
   xlab("Predicted Team Winner") +
@@ -322,7 +322,7 @@ results_r32$game <- seq_along(results_r32$team)
 write.csv(results_r32, "predicted_scores_round_32_v3.csv", row.names = FALSE)
 
 #GRAPHH
-ggplot(data = results_r32, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+ggplot(data = results_r32, aes(x = reorder(team, -predicted_win_prob), y = predicted_win_prob, fill = team)) +
   geom_bar(stat = "identity")+
   theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
   xlab("Predicted Team Winner") +
@@ -471,7 +471,7 @@ results_r16$game <- seq_along(results_r16$team)
 write.csv(results_r16, "predicted_scores_round_16_v3.csv", row.names = FALSE)
 
 #GRAPHH
-ggplot(data = results_r16, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+ggplot(data = results_r16, aes(x = reorder(team, -predicted_win_prob), y = predicted_win_prob, fill = team)) +
   geom_bar(stat = "identity")+
   theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
   xlab("Predicted Team Winner") +
@@ -610,7 +610,7 @@ write.csv(results_r8, "predicted_scores_round_8_v3.csv", row.names = FALSE)
 
 
 #GRAPH
-ggplot(data = results_r8, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+ggplot(data = results_r8, aes(x = reorder(team, -predicted_win_prob), y = predicted_win_prob, fill = team)) +
   geom_bar(stat = "identity")+
   theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
   xlab("Predicted Team Winner") +
@@ -725,7 +725,7 @@ results_r4$game <- seq_along(results_r4$team)
 write.csv(results_r4, "predicted_scores_round_4_v3.csv", row.names = FALSE)
 
 #GRAPH
-ggplot(data = results_r4, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+ggplot(data = results_r4, aes(x = reorder(team, -predicted_win_prob), y = predicted_win_prob, fill = team)) +
   geom_bar(stat = "identity")+
   theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
   xlab("Predicted Team Winner") +
@@ -825,7 +825,7 @@ results_r2$game <- seq_along(results_r2$team)
 write.csv(results_r2, "predicted_scores_round_2_v3.csv", row.names = FALSE)
 
 #GRAPH
-ggplot(data = results_r2, aes(x = reorder(predicted_winner, -predicted_win_prob), y = predicted_win_prob, fill = predicted_winner)) +
+ggplot(data = results_r2, aes(x = reorder(team, -predicted_win_prob), y = predicted_win_prob, fill = team)) +
   geom_bar(stat = "identity")+
   theme(axis.text = element_text(size = 10), axis.text.y = element_text(angle = 360, vjust = 0.5, hjust = 1))+
   xlab("Predicted Team Winner") +
