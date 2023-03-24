@@ -1,4 +1,5 @@
 # March Madness 2023 Predictions 🏀 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%201.58.42%20PM.png)
 
 A brief description of what this project does and who it's for
 
