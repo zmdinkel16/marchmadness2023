@@ -157,6 +157,7 @@ results_r64$game <- seq_along(results_r64$team)
 
 ## Shiny App 💎
 Code used:
+```
 server<-function(input,output){
   
   output$plotMarchMadness <- renderPlot({
@@ -168,6 +169,8 @@ server<-function(input,output){
   output$table_01<-DT::renderDataTable(data_df[,c(input$X,input$Y,input$Z, input$Splitby)],options = list(pageLength = 4))
   
 }
+```
+
 ## Links🔗
 GithubLink:
 https://github.com/zmdinkel16/marchmadness2023  
