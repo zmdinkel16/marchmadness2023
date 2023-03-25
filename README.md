@@ -157,5 +157,10 @@ results_r64$game <- seq_along(results_r64$team)
 
 ## Shiny App 💎
 ## Links🔗
+GithubLink:
+https://github.com/zmdinkel16/marchmadness2023 
+ShinnyLink:
+https://stutishrestha.shinyapps.io/Project2/  
+
 ## Conclusion 🎀
 By using the xgboost() function, we were easily able to create a machine learning model to train itself on historical data and make predictions on march madness winners. While 3 of our 4 final four teams have lost in the tournament already, we still have a great base model that can be further tuned to become more accurate. We understand that march madness is impossible to predict, but our model is a great start and we are proud to have created such a product. 
