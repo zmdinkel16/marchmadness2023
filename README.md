@@ -156,6 +156,18 @@ results_r64$game <- seq_along(results_r64$team)
 * Our predicted March Madness winner is UCLA
 
 ## Shiny App 💎
+Code used:
+server<-function(input,output){
+  
+  output$plotMarchMadness <- renderPlot({
+    
+    ggplot(data_df, aes_string(x=input$X, y= input$Y, z= input$Z))+
+      geom_point()+
+      geom_smooth()
+  })
+  output$table_01<-DT::renderDataTable(data_df[,c(input$X,input$Y,input$Z, input$Splitby)],options = list(pageLength = 4))
+  
+}
 ## Links🔗
 GithubLink:
 https://github.com/zmdinkel16/marchmadness2023  
