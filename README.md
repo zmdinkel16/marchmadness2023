@@ -136,7 +136,7 @@ print(importance)
 
 test_pred <- predict(r64_xgb_model, as.matrix(testing_data[, -31]))
 ```
-## Data Analysis 🧐📊
+## Data Analysis 📊
 ## Predictions
 1. Used our XG Boost model to make predictions for the current year
 ```
@@ -151,7 +151,22 @@ results_r64$predicted_winner <- ifelse(results_r64$predicted_win_prob >= .5, r64
 results_r64$game <- seq_along(results_r64$team)
 ```
 
-2. The rest of our predictions can be found in the Prediction Files folder:
+2. Round of 64 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round64.png)
+
+3.  Round of 32 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round%20of%2032.png)
+
+4.  Round of 16 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round%20of%2016.png)
+
+5.  Round of 8 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round%208.png)
+
+6.  Round of 4 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round4.png)
+
+7. The rest of our predictions can be found in the Prediction Files folder:
 * Our predicted Final Four is NC State, Purdue, Houston, and UCLA
 * Our predicted March Madness winner is UCLA
 
