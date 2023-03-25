@@ -176,6 +176,12 @@ We can see in the scatter point that the point of defense of seed 3 is the highe
 ![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%2011.07.27%20PM.png)
 In the graph 2, we can observe that the Kenpom efficiency rating and barttorvik  ratings are not the same but are similar to each other, the scatter points and the graph drawn are in the same range, not much difference. Seed 1 as usual has the highest efficiency pont than other seeds and seed 16 has the lowest. 
 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%2011.04.43%20PM.png)
+In graph 1, we can see the seed based on points per offense in the line graph and points per defense in the scatter point. The line graph shows that the seed 1 has the highest point of offense and seed 16 has the lowest point of offense. We can see seed 8 to seed 12 have similar points for offense. 
+We can see in the scatter point that the point of defense of seed 3 is the highest and  seed 16 has the lowest point of defense.
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%2011.07.27%20PM.png)
+In the graph 2, we can observe that the Kenpom efficiency rating and barttorvik  ratings are not the same but are similar to each other, the scatter points and the graph drawn are in the same range, not much difference. Seed 1 as usual has the highest efficiency pont than other seeds and seed 16 has the lowest. 
+
 ## Links🔗
 GithubLink:
 https://github.com/zmdinkel16/marchmadness2023  
