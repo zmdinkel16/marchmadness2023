@@ -12,7 +12,7 @@
 
 
 ## Brief Description of the Project ⏳
-We will analyze the March Madness 2023 data and create a model to predict who will be winning this 2023 season. 
+We will analyze the March Madness 2023 data and create a model to predict which team will win 2023 season. 
 ## Dictionary 📖
 1. seed: rank in March Madness tournament
 2. team: school playing in game
