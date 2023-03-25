@@ -156,7 +156,7 @@ results_r64$game <- seq_along(results_r64$team)
 * Our predicted March Madness winner is UCLA
 
 ## Shiny App 💎
-Code used:
+Code used for interactive Shinny:
 ```
 server<-function(input,output){
   
@@ -170,6 +170,7 @@ server<-function(input,output){
   
 }
 ```
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%201.58.42%20PM.png)
 
 ## Links🔗
 GithubLink:
