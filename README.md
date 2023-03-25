@@ -12,7 +12,9 @@
 
 
 ## Brief Description of the Project ⏳
-We will analyze the March Madness 2023 data and create a model to predict which team will win 2023 season. 
+March Madness is one of biggest spoorting events in the US, with millions of fans tuning on to watch the game. The game consists of 68 teams from various universities and colleges across the country. 
+For this project we will analyze the histotic March Madness data as well as the March Madness 2023 data to create a model to predict which team will win 2023 season. We will be working with various different sports statistics to create our model. 
+
 ## Dictionary 📖
 1. seed: rank in March Madness tournament
 2. team: school playing in game
