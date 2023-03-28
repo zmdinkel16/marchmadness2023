@@ -12,7 +12,9 @@
 
 
 ## Brief Description of the Project ⏳
-We will analyze the March Madness 2023 data and create a model to predict which team will win 2023 season. 
+March Madness is one of biggest spoorting events in the US, with millions of fans tuning on to watch the game. The game consists of 68 teams from various universities and colleges across the country. 
+For this project we will analyze the histotic March Madness data as well as the March Madness 2023 data to create a model to predict which team will win 2023 season. We will be working with various different sports statistics to create our model. 
+
 ## Dictionary 📖
 1. seed: rank in March Madness tournament
 2. team: school playing in game
@@ -136,8 +138,9 @@ print(importance)
 
 test_pred <- predict(r64_xgb_model, as.matrix(testing_data[, -31]))
 ```
-## Data Analysis 🧐📊
-## Predictions
+
+## Predictions 🔎
+
 1. Used our XG Boost model to make predictions for the current year
 ```
 current_pred <- predict(r64_xgb_model, as.matrix(r64_current_matchup_differences[, -31]))
@@ -151,9 +154,25 @@ results_r64$predicted_winner <- ifelse(results_r64$predicted_win_prob >= .5, r64
 results_r64$game <- seq_along(results_r64$team)
 ```
 
-2. The rest of our predictions can be found in the Prediction Files folder:
+2. Round of 64 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round64.png)
+
+3.  Round of 32 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round%20of%2032.png)
+
+4.  Round of 16 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round%20of%2016.png)
+
+5.  Round of 8 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round%208.png)
+
+6.  Round of 4 Predictions 
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Round4.png)
+
+7. The rest of our predictions can be found in the Prediction Files folder:
 * Our predicted Final Four is NC State, Purdue, Houston, and UCLA
 * Our predicted March Madness winner is UCLA
+
 
 ## Shiny App 💎
 Code used for interactive Shinny:
@@ -173,7 +192,7 @@ server<-function(input,output){
 ![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%2011.04.43%20PM.png)
 In graph 1, we can see the seed based on points per offense in the line graph and points per defense in the scatter point. The line graph shows that the seed 1 has the highest point of offense and seed 16 has the lowest point of offense. We can see seed 8 to seed 12 have similar points for offense. 
 We can see in the scatter point that the point of defense of seed 3 is the highest and  seed 16 has the lowest point of defense.
-![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%2011.07.27%20PM.png)
+![App Screenshot](https://raw.githubusercontent.com/zmdinkel16/marchmadness2023/main/Pictures%20Used/Screenshot%202023-03-24%20at%2011.05.19%20PM.png)
 In the graph 2, we can observe that the Kenpom efficiency rating and barttorvik  ratings are not the same but are similar to each other, the scatter points and the graph drawn are in the same range, not much difference. Seed 1 as usual has the highest efficiency pont than other seeds and seed 16 has the lowest. 
 
 ## Links🔗
