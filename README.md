@@ -138,7 +138,7 @@ print(importance)
 
 test_pred <- predict(r64_xgb_model, as.matrix(testing_data[, -31]))
 ```
-## Data Analysis 🧐📊
+
 ## Predictions 🔎
 
 1. Used our XG Boost model to make predictions for the current year
